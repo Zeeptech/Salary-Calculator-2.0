@@ -3,18 +3,21 @@ namespace Program {
     class Program
     {
         static void Main(string[] args)
-        {
-            int hour = int.Parse(args[0]);
-            int salary = int.Parse(args[1]);
-            double overTimeProcent = double.Parse(args[2]);
-            double taxProcent = double.Parse(args[3]);
+        {     
+
+            int salary = int.Parse(args[0]);
+            int hour = int.Parse(args[1]);
+            int hourPerShift = int.Parse(args[2]);
+            double overTimeProcent = double.Parse(args[3]);
+            double taxProcent = double.Parse(args[4]);
             double ot = overTime(hour);
             double otp = overTimePay(overTimeProcent, salary);
             double totalOverTime = ot * otp;
+            double payPerShift = salary * hourPerShift;
             double totalPay = salary * hour + totalOverTime;
             double tax = totalPay * (taxProcent / 100);
             double totalPayAfterTax = totalPay - tax;
-            Console.WriteLine($"Ur Payment before taxes:{totalPay}kr. Ur Payment after taxes:{totalPayAfterTax}kr");
+            Console.WriteLine($"Ur Payment before taxes:{totalPay}kr.\nUr Payment after taxes:{totalPayAfterTax}kr.\nEach Shift gives you {payPerShift}kr.");
         }
 
         // If hours pass 165, add hours to overtime, returns overtime puts it in "ot"
