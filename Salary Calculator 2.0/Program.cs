@@ -17,7 +17,11 @@ namespace Program {
             double totalPay = salary * hour + totalOverTime;
             double tax = totalPay * (taxProcent / 100);
             double totalPayAfterTax = totalPay - tax;
-            Console.WriteLine($"Ur Payment before taxes:{totalPay}kr.\nUr Payment after taxes:{totalPayAfterTax}kr.\nEach Shift gives you {payPerShift}kr.");
+            Console.WriteLine($"You have worked a total of: {hour} hours.");
+            Console.WriteLine($"And a total of: {ot} overtime hours");
+            Console.WriteLine($"Your Payment before taxes: {totalPay}kr.");
+            Console.WriteLine($"Your Payment after taxes: {totalPayAfterTax}kr.");
+            Console.WriteLine($"Each shift gives you: {payPerShift}kr.");
         }
 
         // If hours pass 165, add hours to overtime, returns overtime puts it in "ot"
